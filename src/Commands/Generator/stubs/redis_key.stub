@@ -1,0 +1,17 @@
+<?php
+
+declare(strict_types=1);
+
+namespace %NAMESPACE%;
+
+use Fatbit\HyperfTools\Enums\Annotations\RedisKey;
+use Fatbit\HyperfTools\Enums\Annotations\RedisKeyPrefix;
+use Fatbit\HyperfTools\Core\RedisKey\Interfaces\RedisKeyInterface;
+use Fatbit\HyperfTools\Utils\Traits\GetRedisKey;
+
+#[RedisKeyPrefix('perfix', 'changeme')]
+enum %CLASS%: string implements RedisKeyInterface
+{
+    use GetRedisKey;
+
+}

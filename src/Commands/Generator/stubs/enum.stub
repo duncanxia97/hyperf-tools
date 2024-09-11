@@ -1,0 +1,14 @@
+<?php
+
+declare(strict_types=1);
+
+namespace %NAMESPACE%;
+
+use Fatbit\Enums\Annotations\EnumCase;
+use Fatbit\Enums\Interfaces\EnumCaseInterface;
+use Fatbit\Enums\Traits\EnumCaseGet;
+
+enum %CLASS% implements EnumCaseInterface
+{
+    use EnumCaseGet;
+}

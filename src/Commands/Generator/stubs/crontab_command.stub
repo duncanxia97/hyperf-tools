@@ -1,0 +1,15 @@
+<?php
+
+declare(strict_types=1);
+
+namespace %NAMESPACE%;
+
+use Fatbit\HyperfTools\Commands\AbstractCrontabCommand;
+
+class %CLASS% extends AbstractCrontabCommand
+{
+    public function exec()
+    {
+        // TODO: Implement exec() method.
+    }
+}

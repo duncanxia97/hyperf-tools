@@ -1,0 +1,11 @@
+/vendor/
+.idea
+
+.env
+.env-*
+/.vagrant
+.phpunit.result.cache
+/composer.lock
+/phpstan.neon
+*.log
+runtime

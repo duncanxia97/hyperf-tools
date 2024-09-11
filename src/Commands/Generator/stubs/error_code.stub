@@ -1,0 +1,17 @@
+<?php
+
+declare(strict_types=1);
+
+namespace %NAMESPACE%;
+
+use Fatbit\Enums\Annotations\ErrorCode;
+use Fatbit\Enums\Annotations\ErrorCodePrefix;
+use Fatbit\HyperfTools\Core\ErrorCode\Interfaces\ErrorCodeInterface;
+use Scjc\core\ErrorCodes\Traits\ErrorCodeTrait;
+
+#[ErrorCodePrefix(000, 'changeme')]
+enum %CLASS%:int implements ErrorCodeInterface
+{
+    use ErrorCodeTrait;
+
+}

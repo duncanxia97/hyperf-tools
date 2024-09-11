@@ -1,0 +1,12 @@
+<?php
+
+declare(strict_types=1);
+
+namespace %NAMESPACE%;
+
+use Fatbit\HyperfTools\Core\HttpServer\AbstractController;
+
+class %CLASS% extends AbstractController
+{
+
+}
