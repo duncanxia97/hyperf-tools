@@ -38,7 +38,7 @@ class HyperfModelCommand extends ModelCommand
         parent::handle();
     }
 
-    protected function createModel(string $table, ModelOption $option)
+    protected function createModel(string $table, ModelOption $option): void
     {
         $builder = $this->getSchemaBuilder($option->getPool());
         $table   = Str::replaceFirst($option->getPrefix(), '', $table);
