@@ -4,9 +4,9 @@
  * Date: 2021/11/25
  */
 
-namespace Hyperf\Utils;
+namespace Hyperf\Collection;
 
-use \Hyperf\Utils\Arr as BaseArr;
+use \Hyperf\Collection\Arr as BaseArr;
 
 /**
  * Arr IDE帮助类

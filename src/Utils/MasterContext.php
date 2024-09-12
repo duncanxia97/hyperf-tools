@@ -34,10 +34,10 @@ class MasterContext
      *
      * @return int|mixed
      */
-    public static function getMasterCid($cid = null)
+    public static function getMasterCid($cid = 0)
     {
         $pid = SwooleCo::getPcid($cid);
-        if ($pid < 0) {
+        if (!$pid || $pid < 0) {
             return $cid ?? SwooleCo::getCid();
         }
 
