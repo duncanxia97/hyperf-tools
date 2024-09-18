@@ -1613,3 +1613,40 @@ if (!function_exists('isProdEnv')) {
         return Str::startsWith(config('app_env', 'dev'), 'prod');
     }
 }
+
+if (!function_exists('spinLock')) {
+    /**
+     * 自旋锁
+     *
+     * @author XJ.
+     * @Date   2024/9/18 星期三
+     *
+     * @param string   $lockKey   锁键名
+     * @param callable $call      回调函数
+     * @param int      $spinSleep 自旋等待时间
+     * @param int      $timeout   回调超时时间
+     *
+     * @return mixed
+     * @throws RedisException
+     */
+    function spinLock(string $lockKey, callable $call, int $spinSleep = 0, int $timeout = 60)
+    {
+        $lockKey = 's:spin_lock:' . $lockKey;
+        $flag    = false;
+        try {
+            $endTime = time() + $timeout;
+            spin_start:
+            $flag = redis()->set($lockKey, 1, ['nx', 'ex' => $timeout]);
+            if (!$flag || time() > $endTime) {
+                $spinSleep && usleep($spinSleep * 1000);
+                goto spin_start;
+            }
+
+            return $call();
+        } finally {
+            if ($flag) {
+                redis()->del($lockKey);
+            }
+        }
+    }
+}
